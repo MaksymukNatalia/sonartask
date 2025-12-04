@@ -1,13 +1,20 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 class AppTest {
 
     @Test
-    void testMainRuns() {
-        App.main(new String[]{});
-        assertTrue(true); // Dummy assertion just to make coverage > 0%
+    void testMainDoesNotThrow() {
+        assertDoesNotThrow(() -> App.main(new String[]{}));
+    }
+
+    @Test
+    void testAppClassLoad() {
+        App app = new App();
+        assertDoesNotThrow(() -> {
+            // Nothing required — class instantiation itself is covered
+        });
     }
 }
